@@ -63,7 +63,7 @@
       </div>
     </div>
   </section>
-  <section class="d-flex flex-column align-items-center mt-5">
+  <section class="d-flex flex-column align-items-center my-5">
     <section id="cards-container" class="w-75 d-flex justify-content-around">
 
     </section>
@@ -76,12 +76,48 @@
           <input type="text" class="form-control" id="job-title" aria-describedby="job-title">
         </div>
         <div class="mb-3">
+          <label for="job-image" class="form-label">
+            Image
+          </label>
+          <input type="text" class="form-control" id="job-image" aria-describedby="job-image" placeholder="url/image.png">
+        </div>
+        <div class="mb-3">
           <label for="job-description" class="form-label">
             Description
           </label>
           <textarea type="text" class="form-control" id="job-description"></textarea>
         </div>
         <div class="mb-3">
+          <label for="job-salary" class="form-label">
+            Salary
+          </label>
+          <input type="number" min="0" class="form-control" id="job-salary" aria-describedby="job-salary">
+        </div>
+        <div class="my-5 form-check">
+          <input type="checkbox" class="form-check-input" id="job-term">
+          <label class="form-check-label" for="job-term">
+            Long term
+          </label>
+        </div>
+        <div class="my-5">
+          <label class="form-label">
+            Languages (max. 5)
+          </label>
+          <input type="text" class="form-control mb-2" id="job-l-1" placeholder="Ej.: Phyton">
+          <input type="text" class="form-control mb-2" id="job-l-2" placeholder="Ej.: Phyton">
+          <input type="text" class="form-control mb-2" id="job--l-3" placeholder="Ej.: Phyton">
+          <input type="text" class="form-control mb-2" id="job--l-4" placeholder="Ej.: Phyton">
+          <input type="text" class="form-control mb-2" id="job--l-5" placeholder="Ej.: Phyton">
+        </div>
+        <div class="my-5">
+          <label class="form-label">
+            Benefits
+          </label>
+          <input type="text" class="form-control mb-2" id="job-vacation" placeholder="Vacation">
+          <input type="text" class="form-control mb-2" id="job-healt" placeholder="Health Ensurance">
+          <input type="text" class="form-control mb-2" id="job-internet" placeholder="Internet Paid">
+        </div>
+        <div class="my-5">
           <label class="form-label">
             Tags
           </label>
@@ -89,6 +125,7 @@
           <input type="text" class="form-control mb-2" id="job-seniority" placeholder="Seniority">
           <input type="text" class="form-control mb-2" id="job-Category" placeholder="Category">
         </div>
+        
         <button type="submit" id="submit-job" class="btn btn-primary">
           Submit
         </button>
