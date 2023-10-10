@@ -1,3 +1,36 @@
 .fs-8 {
     font-size: 0.8rem;
 }
+
+.bg-tags {
+ background-color: #E39625;
+ color: white;
+}
+
+.bg-includes {
+background-color: #738B9A;
+color: white;
+}
+
+.btn-success {
+    background-color: #6F9653;
+    border: none;
+}
+
+.btn-danger {
+    background-color: #B34121;
+    border: none;
+}
+
+.bg-primary-c {
+    background-color: #0072BA;
+    color: white;
+}
+
+.title-color {
+    color: #3D4043;
+}
+
+.w-10 {
+    width: 200px; 
+}
