@@ -11,6 +11,9 @@
 </head>
 
 <body>
+<!-- ----------------
+  NAVBAR
+---------------- -->
   <nav class="navbar navbar-expand-lg bg-primary text-light">
     <div class="container-fluid">
       <span class="navbar me-3">
@@ -37,37 +40,43 @@
     </div>
   </nav>
 
-  <section class="d-flex justify-content-center">
-    <div class="w-75 p-3 d-flex justify-content-center">
-      <select class="form-select m-3">
-        <option value="">Location</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <select class="form-select m-3">
-        <option value="">Seniority</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <select class="form-select m-3">
-        <option value="">Category</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-      <div class="d-flex justify-content-start p-3">
-        <button id="search-job" class="btn btn-primary me-md-2" type="button">Search</button>
-        <button id="clear-search" class="btn btn-outline-primary" type="button">Clear</button>
-      </div>
-    </div>
-  </section>
-  <section class="d-flex flex-column align-items-center my-5">
-    <section id="cards-container" class="w-75 d-flex justify-content-around">
+<!-- ---------------
+HOME/ JOB LIST
+-------------- -->
+  <section id="home" class="view visually-hidden">
+    <!-- FILTERS -->
+    <section class="d-flex justify-content-center">
+      <div class="w-75 p-3 d-flex justify-content-center">
+        <select class="form-select m-3">
+          <option value="">Location</option>
+        </select>
+        <select class="form-select m-3">
+          <option value="">Seniority</option>
 
+        </select>
+        <select class="form-select m-3">
+          <option value="">Category</option>
+
+        </select>
+        <div class="d-flex justify-content-start p-3">
+          <button id="search-job" class="btn btn-primary me-md-2" type="button">Search</button>
+          <button id="clear-search" class="btn btn-outline-primary" type="button">Clear</button>
+        </div>
+      </div>
     </section>
-    <section id="new-career" class="w-75 d-flex flex-column justify-content-center visually-hidden">
+
+    <!-- JOB CARDS -->
+    <section id="cards-container" class="w-75 d-flex justify-content-around">
+  
+    </section>
+  </section>
+
+  <section class="d-flex flex-column align-items-center my-5">
+
+<!-- ---------------------
+    ADDING NEW CAREER
+    ------------------- -->
+    <section id="new-career" class="w-75 d-flex flex-column justify-content-center">
       <form>
         <div class="mb-3">
           <label for="job-title" class="form-label">
@@ -87,43 +96,91 @@
           </label>
           <textarea type="text" class="form-control" id="job-description"></textarea>
         </div>
-        <div class="mb-3">
-          <label for="job-salary" class="form-label">
-            Salary
-          </label>
-          <input type="number" min="0" class="form-control" id="job-salary" aria-describedby="job-salary">
+
+        <!-- BENEFITS -->
+        <div class="row g-2 mt-4">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="job-salary">
+              <label for="job-salary">Salary</label>
+            </div>
+          </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="job-contract">
+                <label for="job-contract">Contract</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="job-health-ensurance">
+                <label for="job-health-ensurance">Health Ensurance</label>
+              </div>
+            </div>
         </div>
-        <div class="my-5 form-check">
-          <input type="checkbox" class="form-check-input" id="job-term">
-          <label class="form-check-label" for="job-term">
-            Long term
-          </label>
+        
+        <!-- TAGS -->
+        <div class="row g-2 my-2">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="job-ship">
+              <label for="job-ship">Ship</label>
+            </div>
+          </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="job-seniority">
+                <label for="job-seniority">Seniority</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="job-category" ">
+                <label for="job-category">Category</label>
+              </div>
+            </div>
         </div>
-        <div class="my-5">
-          <label class="form-label">
-            Languages (max. 5)
+        
+
+        <!-- LANGUAGES -->
+        <div class="row g-2 mt-4">
+          <label>
+            Languages required
           </label>
-          <input type="text" class="form-control mb-2" id="job-l-1" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="job-l-2" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="job--l-3" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="job--l-4" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="job--l-5" placeholder="Ej.: Phyton">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="job-lan-1">
+              <label for="job-lan-1">Language 1</label>
+            </div>
+          </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="job-lan-2">
+                <label for="job-lan-2">Language 2</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="job-lan-3" ">
+                <label for="job-lan-3">Language 3</label>
+              </div>
+            </div>
         </div>
-        <div class="my-5">
-          <label class="form-label">
-            Benefits
-          </label>
-          <input type="text" class="form-control mb-2" id="job-vacation" placeholder="Vacation">
-          <input type="text" class="form-control mb-2" id="job-healt" placeholder="Health Ensurance">
-          <input type="text" class="form-control mb-2" id="job-internet" placeholder="Internet Paid">
-        </div>
-        <div class="my-5">
-          <label class="form-label">
-            Tags
-          </label>
-          <input type="text" class="form-control mb-2" id="job-location" placeholder="Location">
-          <input type="text" class="form-control mb-2" id="job-seniority" placeholder="Seniority">
-          <input type="text" class="form-control mb-2" id="job-Category" placeholder="Category">
+
+        <!-- EXTRAS -->
+        <div class="d-flex">
+          <div class="me-5 my-5 form-check">
+            <input type="checkbox" class="form-check-input" id="job-tickets">
+            <label class="form-check-label" for="job-tickets">
+              Airplaine tickets
+            </label>
+          </div>
+          <div class="m-5 form-check">
+            <input type="checkbox" class="form-check-input" id="job-internet">
+            <label class="form-check-label" for="job-internet">
+              Internet 
+            </label>
+          </div>
         </div>
         
         <button type="submit" id="submit-job" class="btn btn-primary">
@@ -131,6 +188,10 @@
         </button>
       </form>
     </section>
+
+    <!-- ---------------
+    EDIT CAREER
+    --------------- -->
     <section id="edit-career" class="w-75 d-flex flex-column justify-content-center visually-hidden">
       <form>
         <div class="mb-3">
@@ -149,45 +210,93 @@
           <label for="job-description" class="form-label">
             Description
           </label>
-          <textarea type="text" class="form-control" id="job-description"></textarea>
+          <textarea type="text" class="form-control" id="edit-description"></textarea>
         </div>
-        <div class="mb-3">
-          <label for="edit-salary" class="form-label">
-            Salary
-          </label>
-          <input type="number" min="0" class="form-control" id="edit-salary" aria-describedby="edit-salary">
+
+        <!-- BENEFITS -->
+        <div class="row g-2 mt-4">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="edit-salary">
+              <label for="edit-salary">Salary</label>
+            </div>
+          </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="edit-contract">
+                <label for="edit-contract">Contract</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="edit-health-ensurance">
+                <label for="edit-health-ensurance">Health Ensurance</label>
+              </div>
+            </div>
         </div>
-        <div class="my-5 form-check">
-          <input type="checkbox" class="form-check-input" id="edit-term">
-          <label class="form-check-label" for="edit-term">
-            Long term
-          </label>
+        
+        <!-- TAGS -->
+        <div class="row g-2 my-2">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="edit-ship">
+              <label for="edit-ship">Ship</label>
+            </div>
+          </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="edit-seniority">
+                <label for="edit-seniority">Seniority</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="edit-category" ">
+                <label for="edit-category">Category</label>
+              </div>
+            </div>
         </div>
-        <div class="my-5">
-          <label class="form-label">
-            Languages (max. 5)
+        
+
+        <!-- LANGUAGES -->
+        <div class="row g-2 mt-4">
+          <label>
+            Languages required
           </label>
-          <input type="text" class="form-control mb-2" id="edit-l-1" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="edit-l-2" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="edit--l-3" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="edit--l-4" placeholder="Ej.: Phyton">
-          <input type="text" class="form-control mb-2" id="edit--l-5" placeholder="Ej.: Phyton">
+          <div class="col-md">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="edit-lan-1">
+              <label for="edit-lan-1">Language 1</label>
+            </div>
+          </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="edit-lan-2">
+                <label for="edit-lan-2">Language 2</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input type="text" class="form-control" id="edit-lan-3" ">
+                <label for="edit-lan-3">Language 3</label>
+              </div>
+            </div>
         </div>
-        <div class="my-5">
-          <label class="form-label">
-            Benefits
-          </label>
-          <input type="text" class="form-control mb-2" id="edit-vacation" placeholder="Vacation">
-          <input type="text" class="form-control mb-2" id="edit-healt" placeholder="Health Ensurance">
-          <input type="text" class="form-control mb-2" id="edit-internet" placeholder="Internet Paid">
-        </div>
-        <div class="my-5">
-          <label class="form-label">
-            Tags
-          </label>
-          <input type="text" class="form-control mb-2" id="edit-location" placeholder="Location">
-          <input type="text" class="form-control mb-2" id="edit-seniority" placeholder="Seniority">
-          <input type="text" class="form-control mb-2" id="edit-Category" placeholder="Category">
+
+        <!-- EXTRAS -->
+        <div class="d-flex">
+          <div class="me-5 my-5 form-check">
+            <input type="checkbox" class="form-check-input" id="edit-tickets">
+            <label class="form-check-label" for="edit-tickets">
+              Airplaine tickets
+            </label>
+          </div>
+          <div class="m-5 form-check">
+            <input type="checkbox" class="form-check-input" id="edit-internet">
+            <label class="form-check-label" for="edit-internet">
+              Internet 
+            </label>
+          </div>
         </div>
         
         <button type="submit" id="submit-edit" class="btn btn-success">
