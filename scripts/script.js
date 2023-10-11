@@ -19,7 +19,7 @@ const printJobs = (jobList) => {
 
             card.id = id;
             card.className = "card m-3 shadow";
-            card.style.width = "16.6rem";
+            card.style.width = "18rem";
 
             card.innerHTML = `
     <img src="${image}" class="card-img-top" alt="ship/job ilustration">
@@ -63,6 +63,79 @@ const cutText = (text) => {
     } else {
         return text;
     }
+};
+
+//-----------------
+// Job details get individual job from api
+//------------------
+
+const showJobDetails = ({
+    id,
+    image,
+    name,
+    description,
+    ship,
+    department,
+    seniority,
+    salary,
+    languages,
+    airplaine_tickets,
+    benefits: { contract, vacation, internet_paid },
+}) => {
+    $("#show-title").innerHTML = name;
+    $("#show-description").innerHTML = description;
+    $("#show-salary").innerHTML = salary;
+    $("#show-contract").innerHTML = contract;
+    $("#show-vacation").innerHTML = vacation;
+    $("#show-ship").innerHTML = ship;
+    $("#show-department").innerHTML = department;
+    $("#show-seniority").innerHTML = seniority;
+    $("#show-image").setAttribute("src", image);
+    $("#show-languages").innerHTML = `${languages.join("  ")}`;
+    showTag(airplaine_tickets, $("#show-tickets"));
+    showTag(internet_paid, $("#show-internet"));
+    showView("show-details");
+};
+
+$("#edit-view").addEventListener("click", () => {
+    $("#edit-career").classList.remove("visually-hidden");
+});
+
+const showTag = (value, tag) => {
+    if (value) {
+        tag.classList.remove("visually-hidden");
+    } else {
+        tag.classList.add("visually-hidden");
+    }
+};
+
+//EDIT JOB
+
+const editValues = ({
+    id,
+    image,
+    name,
+    description,
+    ship,
+    department,
+    seniority,
+    salary,
+    languages,
+    airplaine_tickets,
+    benefits: { contract, vacation, internet_paid },
+}) => {
+    $("#edit-title").value = name;
+    $("#edit-description").value = description;
+    $("#edit-salary").value = salary;
+    $("#edit-contract").value = contract;
+    $("#edit-vacation").value = vacation;
+    $("#edit-ship").value = ship;
+    $("#edit-department").value = department;
+    $("#edit-seniority").value = seniority;
+    $("#edit-image").value = image;
+    //$("#show-languages").value = `${languages.join("  ")}`;
+    $("#edit-tickets").checked = airplaine_tickets;
+    $("#edit-internet").checked = internet_paid;
 };
 
 //----------
@@ -142,7 +215,7 @@ const createNewJob = () => {
         },
         salary: $("#job-salary").value,
         airplaine_tickets: $("#job-tickets").checked,
-        languajes: [
+        languages: [
             $("#job-lan-1").value,
             $("#job-lan-2").value,
             $("#job-lan-3").value,
