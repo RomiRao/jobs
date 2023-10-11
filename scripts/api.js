@@ -8,6 +8,10 @@ const getJobs = async () => {
     renderHome(data);
 };
 
+const getJobDetail = (id) => {
+    console.log("este es el id", id);
+};
+
 const renderHome = (data) => {
     printJobs(data);
     getShips(data);
