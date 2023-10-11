@@ -20,8 +20,15 @@ const postJob = async (newJob) => {
     cleanForm();
 };
 
-const getJobDetail = (id) => {
-    console.log("este es el id", id);
+const getJobDetail = async (id) => {
+    showView("spinner");
+    let response = await fetch(
+        `https://651eecc744a3a8aa47693542.mockapi.io/Jobs/${id}`
+    );
+    let data = await response.json();
+
+    showJobDetails(data);
+    editValues(data);
 };
 
 const renderHome = (data) => {
