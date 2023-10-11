@@ -13,42 +13,55 @@ const showView = (id) => {
 const printJobs = (jobList) => {
     showView("home");
     $("#cards-container").innerHTML = "";
-    jobList.forEach((job) => {
-        $(
-            "#cards-container"
-        ).innerHTML += `<div class="card m-3" style="width: 16.6rem;">
-    <img src="${job.image}" class="card-img-top" alt="ship/job ilustration">
+    jobList.forEach(
+        ({ id, image, name, description, ship, department, seniority }) => {
+            const card = document.createElement("div");
+
+            card.id = id;
+            card.className = "card m-3 shadow";
+            card.style.width = "16.6rem";
+
+            card.innerHTML = `
+    <img src="${image}" class="card-img-top" alt="ship/job ilustration">
     <div class="card-body d-flex flex-column justify-content-around">
       <h5 class="card-title">
-        ${job.name}
+        ${name}
       </h5>
       <p class="card-text">
-        ${cutText(job.description)}
+        ${cutText(description)}
       </p>
       <div class="my-2">
         <span class="bg-tags rounded px-2 m-1 fs-8 text fw-semibold">
-          ${job.ship}
+          ${ship}
         </span>
         <span class="bg-tags rounded px-2 m-1 fs-8 text fw-semibold">
-          ${job.department}
+          ${department}
         </span>
         <span class="bg-tags rounded px-2 m-1 fs-8 text fw-semibold">
-          ${job.seniority}
+          ${seniority}
         </span>
       </div>
       <div>
-        <a href="#" class="btn bg-primary-c">
+        <a href="#" class="btn detail-btn bg-primary-c">
           See details
         </a>
       </div>
-    </div>
     </div>`;
-    });
+
+            $("#cards-container").appendChild(card);
+
+            card.querySelector(".detail-btn").addEventListener("click", () =>
+                getJobDetail(id)
+            );
+        }
+    );
 };
 
 const cutText = (text) => {
     if (text.length > 150) {
         return `${text.slice(0, 150)}...`;
+    } else {
+        return text;
     }
 };
 
@@ -106,4 +119,57 @@ const getDepartments = (data) => {
     });
 };
 
+//-----------------
+// TO ADD NEW JOB AND POST ON API
+//-----------------
+
+const newJobView = () => {
+    showView("new-career");
+};
+
+const createNewJob = () => {
+    let newJob = {
+        name: $("#job-title").value,
+        image: $("#job-image").value,
+        description: $("#job-description").value,
+        ship: $("#job-ship").value,
+        department: $("#job-department").value,
+        seniority: $("#job-seniority").value,
+        benefits: {
+            vacation: $("#job-vacation").value,
+            contract: $("#job-contract").value,
+            internet_paid: $("#job-internet").checked,
+        },
+        salary: $("#job-salary").value,
+        airplaine_tickets: $("#job-tickets").checked,
+        languajes: [
+            $("#job-lan-1").value,
+            $("#job-lan-2").value,
+            $("#job-lan-3").value,
+        ],
+    };
+
+    postJob(newJob);
+};
+
+const cleanForm = () => {
+    $("#job-title").value = "";
+    $("#job-image").value = "";
+    $("#job-description").value = "";
+    $("#job-ship").value = "";
+    $("#job-department").value = "";
+    $("#job-seniority").value = "";
+    $("#job-vacation").value = "";
+    $("#job-contract").value = "";
+    $("#job-internet").checked = false;
+    $("#job-salary").value = "";
+    $("#job-tickets").checked = false;
+    $("#job-lan-1").value = "";
+    $("#job-lan-2").value = "";
+    $("#job-lan-3").value = "";
+};
+
+$("#home-btn").addEventListener("click", () => getJobs());
+$("#create-job").addEventListener("click", () => newJobView());
+$("#submit-job").addEventListener("click", () => createNewJob());
 window.onload = getJobs();
