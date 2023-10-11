@@ -1,23 +1,18 @@
-const getJobs = () => {
-    fetch("https://651eecc744a3a8aa47693542.mockapi.io/Jobs")
-        .then((response) => response.json())
-        .then((data) => printJobs(data));
+const getJobs = async () => {
+    showView("spinner");
+    let response = await fetch(
+        "https://651eecc744a3a8aa47693542.mockapi.io/Jobs"
+    );
+    let data = await response.json();
+
+    renderHome(data);
 };
 
-const inicializar = (data) => {
-    getCountries(data);
-    //renderJobs(data)
-};
-
-const getCountries = (data) => {
-    const countries = [];
-    data.forEach((element) => {
-        if (!countries.includes(element.location)) {
-            countries.push(element.location);
-        }
-    });
-    console.log(countries);
-    return countries;
+const renderHome = (data) => {
+    printJobs(data);
+    getShips(data);
+    getSeniority(data);
+    getDepartments(data);
 };
 
 const createNewJob = () => {
@@ -38,5 +33,3 @@ const createNewJob = () => {
         languajes: [],
     };
 };
-
-window.onload = getJobs();
