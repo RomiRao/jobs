@@ -27,6 +27,7 @@ const getJobDetail = async (id) => {
 
     showJobDetails(data);
     editValues(data);
+    $("#btn-delete-job").addEventListener("click", () => deleteJob(id));
 };
 
 const editJob = async (id, job) => {
@@ -35,6 +36,15 @@ const editJob = async (id, job) => {
         method: "PUT",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(job),
+    });
+
+    getJobs();
+};
+
+const deleteJob = async (id) => {
+    showView("spinner");
+    await fetch(`${apiUrl}/Jobs/${id}`, {
+        method: "DELETE",
     });
 
     getJobs();
