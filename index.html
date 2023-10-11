@@ -39,38 +39,40 @@
     </div>
   </nav>
 
+<!-- spinner -->
+<section id="spinner" class="view d-flex flex-column align-items-center my-5 visually-hidden">
+  <div class="spinner-border spinner-color" role="status">
+  </div>
+</section>
+
 <!-- ---------------
 HOME/ JOB LIST
 -------------- -->
-  <section id="home" class="view">
+  <section id="home" class="view d-flex flex-column align-items-center">
     <!-- FILTERS -->
-    <section class="d-flex justify-content-center">
-      <div class="w-75 p-3 d-flex justify-content-center">
-        <select class="form-select m-3">
-          <option value="">Location</option>
-        </select>
-        <select class="form-select m-3">
-          <option value="">Seniority</option>
 
+      <div class="w-75 p-3 d-flex justify-content-center my-4">
+        <select id="select-ship" class="form-select m-3">
         </select>
-        <select class="form-select m-3">
-          <option value="">Category</option>
-
+        <select id="select-seniority" class="form-select m-3">
+        </select>
+        <select id="select-department" class="form-select m-3">
         </select>
         <div class="d-flex justify-content-start p-3">
           <button id="search-job" class="btn bg-primary-c me-md-2" type="button">Search</button>
           <button id="clear-search" class="btn btn-outline-secondary" type="button">Clear</button>
         </div>
       </div>
-    </section>
+
 
     <!-- JOB CARDS -->
-    <section id="cards-container" class="w-75 d-flex justify-content-around">
-  
+    <section id="cards-container" class="w-75 d-flex justify-content-center flex-wrap">
+
     </section>
   </section>
 
   <section class="d-flex flex-column align-items-center my-5">
+    
 
 <!-- ---------------------
     ADDING NEW CAREER
