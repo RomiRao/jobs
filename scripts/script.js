@@ -150,7 +150,23 @@ const createNewJob = () => {
     };
 
     postJob(newJob);
-    console.log(newJob);
+};
+
+const cleanForm = () => {
+    $("#job-title").value = "";
+    $("#job-image").value = "";
+    $("#job-description").value = "";
+    $("#job-ship").value = "";
+    $("#job-department").value = "";
+    $("#job-seniority").value = "";
+    $("#job-vacation").value = "";
+    $("#job-contract").value = "";
+    $("#job-internet").checked = false;
+    $("#job-salary").value = "";
+    $("#job-tickets").checked = false;
+    $("#job-lan-1").value = "";
+    $("#job-lan-2").value = "";
+    $("#job-lan-3").value = "";
 };
 
 $("#home-btn").addEventListener("click", () => getJobs());

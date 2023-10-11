@@ -17,6 +17,7 @@ const postJob = async (newJob) => {
     });
 
     getJobs();
+    cleanForm();
 };
 
 const getJobDetail = (id) => {
