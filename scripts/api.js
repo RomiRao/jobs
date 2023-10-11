@@ -1,7 +1,7 @@
 const getJobs = () => {
     fetch("https://651eecc744a3a8aa47693542.mockapi.io/Jobs")
         .then((response) => response.json())
-        .then((data) => inicializar(data));
+        .then((data) => printJobs(data));
 };
 
 const inicializar = (data) => {
