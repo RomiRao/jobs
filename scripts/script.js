@@ -52,7 +52,9 @@ const cutText = (text) => {
     }
 };
 
+//----------
 //GET FILTERS FROM API
+//--------------
 const getShips = (data) => {
     $("#select-ship").innerHTML = "";
     $("#select-ship").innerHTML =
