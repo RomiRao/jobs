@@ -245,4 +245,5 @@ const cleanForm = () => {
 $("#home-btn").addEventListener("click", () => getJobs());
 $("#create-job").addEventListener("click", () => newJobView());
 $("#submit-job").addEventListener("click", () => createNewJob());
+
 window.onload = getJobs();
