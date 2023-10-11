@@ -13,37 +13,52 @@ const showView = (id) => {
 const printJobs = (jobList) => {
     showView("home");
     $("#cards-container").innerHTML = "";
-    jobList.forEach((job) => {
-        $(
-            "#cards-container"
-        ).innerHTML += `<div class="card m-3" style="width: 16.6rem;">
-    <img src="${job.image}" class="card-img-top" alt="ship/job ilustration">
+    jobList.forEach(
+        ({ id, image, name, description, ship, department, seniority }) => {
+            const card = document.createElement("div");
+
+            card.id = id;
+            card.className = "card m-3 shadow";
+            card.style.width = "16.6rem";
+
+            card.innerHTML = `
+    <img src="${image}" class="card-img-top" alt="ship/job ilustration">
     <div class="card-body d-flex flex-column justify-content-around">
       <h5 class="card-title">
-        ${job.name}
+        ${name}
       </h5>
       <p class="card-text">
-        ${cutText(job.description)}
+        ${cutText(description)}
       </p>
       <div class="my-2">
         <span class="bg-tags rounded px-2 m-1 fs-8 text fw-semibold">
-          ${job.ship}
+          ${ship}
         </span>
         <span class="bg-tags rounded px-2 m-1 fs-8 text fw-semibold">
-          ${job.department}
+          ${department}
         </span>
         <span class="bg-tags rounded px-2 m-1 fs-8 text fw-semibold">
-          ${job.seniority}
+          ${seniority}
         </span>
       </div>
       <div>
-        <a href="#" class="btn bg-primary-c">
+        <a href="#" class="btn detail-btn bg-primary-c">
           See details
         </a>
       </div>
-    </div>
     </div>`;
-    });
+
+            $("#cards-container").appendChild(card);
+
+            card.querySelector(".detail-btn").addEventListener("click", () =>
+                printJobDetail(id)
+            );
+        }
+    );
+};
+
+const printJobDetail = (id) => {
+    console.log("este es el id", id);
 };
 
 const cutText = (text) => {
