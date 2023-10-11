@@ -120,7 +120,7 @@ const editValues = ({
     department,
     seniority,
     salary,
-    languages,
+    languages: [lan1, lan2, lan3],
     airplaine_tickets,
     benefits: { contract, vacation, internet_paid },
 }) => {
@@ -133,7 +133,9 @@ const editValues = ({
     $("#edit-department").value = department;
     $("#edit-seniority").value = seniority;
     $("#edit-image").value = image;
-    //$("#show-languages").value = `${languages.join("  ")}`;
+    $("#edit-lan-1").value = lan1;
+    $("#edit-lan-2").value = lan2;
+    $("#edit-lan-3").value = lan3;
     $("#edit-tickets").checked = airplaine_tickets;
     $("#edit-internet").checked = internet_paid;
 };
