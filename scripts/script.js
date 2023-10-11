@@ -70,6 +70,7 @@ const cutText = (text) => {
 //------------------
 
 const showJobDetails = ({
+    id,
     image,
     name,
     description,
@@ -94,6 +95,8 @@ const showJobDetails = ({
     showTag(airplaine_tickets, $("#show-tickets"));
     showTag(internet_paid, $("#show-internet"));
     showView("show-details");
+
+    $("#btn-delete-job").addEventListener("click", () => deleteJob(id));
 };
 
 $("#edit-view").addEventListener("click", () => {
@@ -269,4 +272,5 @@ const cleanForm = () => {
 $("#home-btn").addEventListener("click", () => getJobs());
 $("#create-job").addEventListener("click", () => newJobView());
 $("#submit-job").addEventListener("click", () => createNewJob());
+
 window.onload = getJobs();

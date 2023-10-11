@@ -40,6 +40,15 @@ const editJob = async (id, job) => {
     getJobs();
 };
 
+const deleteJob = async (id) => {
+    showView("spinner");
+    await fetch(`${apiUrl}/Jobs/${id}`, {
+        method: "DELETE",
+    });
+
+    getJobs();
+};
+
 const renderHome = (data) => {
     printJobs(data);
     getShips(data);
