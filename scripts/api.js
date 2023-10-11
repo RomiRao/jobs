@@ -1,8 +1,8 @@
+const apiUrl = "https://651eecc744a3a8aa47693542.mockapi.io";
+
 const getJobs = async () => {
     showView("spinner");
-    let response = await fetch(
-        "https://651eecc744a3a8aa47693542.mockapi.io/Jobs"
-    );
+    let response = await fetch(`${apiUrl}/Jobs`);
     let data = await response.json();
 
     renderHome(data);
@@ -10,7 +10,7 @@ const getJobs = async () => {
 
 const postJob = async (newJob) => {
     showView("spinner");
-    await fetch("https://651eecc744a3a8aa47693542.mockapi.io/Jobs", {
+    await fetch(`${apiUrl}/Jobs`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(newJob),
@@ -22,13 +22,22 @@ const postJob = async (newJob) => {
 
 const getJobDetail = async (id) => {
     showView("spinner");
-    let response = await fetch(
-        `https://651eecc744a3a8aa47693542.mockapi.io/Jobs/${id}`
-    );
+    let response = await fetch(`${apiUrl}/Jobs/${id}`);
     let data = await response.json();
 
     showJobDetails(data);
     editValues(data);
+};
+
+const editJob = async (id, job) => {
+    showView("spinner");
+    await fetch(`${apiUrl}/Jobs/${id}`, {
+        method: "PUT",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(job),
+    });
+
+    getJobs();
 };
 
 const renderHome = (data) => {
