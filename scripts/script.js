@@ -51,19 +51,17 @@ const printJobs = (jobList) => {
             $("#cards-container").appendChild(card);
 
             card.querySelector(".detail-btn").addEventListener("click", () =>
-                printJobDetail(id)
+                getJobDetail(id)
             );
         }
     );
 };
 
-const printJobDetail = (id) => {
-    console.log("este es el id", id);
-};
-
 const cutText = (text) => {
     if (text.length > 150) {
         return `${text.slice(0, 150)}...`;
+    } else {
+        return text;
     }
 };
 
@@ -121,4 +119,41 @@ const getDepartments = (data) => {
     });
 };
 
+//-----------------
+// TO ADD NEW JOB AND POST ON API
+//-----------------
+
+const newJobView = () => {
+    showView("new-career");
+};
+
+const createNewJob = () => {
+    let newJob = {
+        name: $("#job-title").value,
+        image: $("#job-image").value,
+        description: $("#job-description").value,
+        ship: $("#job-ship").value,
+        department: $("#job-department").value,
+        seniority: $("#job-seniority").value,
+        benefits: {
+            vacation: $("#job-vacation").value,
+            contract: $("#job-contract").value,
+            internet_paid: $("#job-internet").checked,
+        },
+        salary: $("#job-salary").value,
+        airplaine_tickets: $("#job-tickets").checked,
+        languajes: [
+            $("#job-lan-1").value,
+            $("#job-lan-2").value,
+            $("#job-lan-3").value,
+        ],
+    };
+
+    postJob(newJob);
+    console.log(newJob);
+};
+
+$("#home-btn").addEventListener("click", () => getJobs());
+$("#create-job").addEventListener("click", () => newJobView());
+$("#submit-job").addEventListener("click", () => createNewJob());
 window.onload = getJobs();
