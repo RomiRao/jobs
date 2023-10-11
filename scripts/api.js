@@ -27,7 +27,6 @@ const getJobDetail = async (id) => {
 
     showJobDetails(data);
     editValues(data);
-    $("#btn-delete-job").addEventListener("click", () => deleteJob(id));
 };
 
 const editJob = async (id, job) => {
