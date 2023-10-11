@@ -70,7 +70,6 @@ const cutText = (text) => {
 //------------------
 
 const showJobDetails = ({
-    id,
     image,
     name,
     description,
@@ -138,6 +137,29 @@ const editValues = ({
     $("#edit-lan-3").value = lan3;
     $("#edit-tickets").checked = airplaine_tickets;
     $("#edit-internet").checked = internet_paid;
+
+    $("#edit-job").addEventListener("click", () => {
+        editJob(id, {
+            name: $("#edit-title").value,
+            image: $("#edit-image").value,
+            description: $("#edit-description").value,
+            ship: $("#edit-ship").value,
+            department: $("#edit-department").value,
+            seniority: $("#edit-seniority").value,
+            benefits: {
+                vacation: $("#edit-vacation").value,
+                contract: $("#edit-contract").value,
+                internet_paid: $("#edit-internet").checked,
+            },
+            salary: $("#edit-salary").value,
+            airplaine_tickets: $("#edit-tickets").checked,
+            languages: [
+                $("#edit-lan-1").value,
+                $("#edit-lan-2").value,
+                $("#edit-lan-3").value,
+            ],
+        });
+    });
 };
 
 //----------
