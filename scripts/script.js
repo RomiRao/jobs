@@ -168,56 +168,79 @@ const editValues = ({
 //----------
 //GET FILTERS FROM API
 //--------------
-const getShips = (data) => {
-    $("#select-ship").innerHTML = "";
-    $("#select-ship").innerHTML =
-        '<option value="" selected disabled>Ship</option>';
-    let ships = [];
+
+const getFilter = (data, filter, idFilter) => {
+    const arrayOfOptions = [];
+
     data.forEach((job) => {
-        if (!ships.includes(job.ship)) {
-            ships.push(job.ship);
+        const value = job[filter];
+        if (!arrayOfOptions.includes(value)) {
+            arrayOfOptions.push(value);
         }
     });
-    ships.forEach((ship) => {
-        $(
-            "#select-ship"
-        ).innerHTML += `<option value="${ship}">${ship}</option>`;
+
+    idFilter.innerHTML = "";
+    idFilter.innerHTML =
+        "<option selected>" +
+        filter.charAt(0).toUpperCase() +
+        filter.slice(1) +
+        "</option>";
+
+    arrayOfOptions.forEach((option) => {
+        idFilter.innerHTML += `<option>${option}</option>`;
     });
 };
 
-const getSeniority = (data) => {
-    $("#select-seniority").innerHTML = "";
-    $("#select-seniority").innerHTML =
-        '<option value="" selected disabled>Seniority</option>';
-    let seniority = [];
-    data.forEach((job) => {
-        if (!seniority.includes(job.seniority)) {
-            seniority.push(job.seniority);
-        }
-    });
-    seniority.forEach((seniority) => {
-        $(
-            "#select-seniority"
-        ).innerHTML += `<option value="${seniority}">${seniority}</option>`;
-    });
-};
+// const getShips = (data) => {
+//     $("#select-ship").innerHTML = "";
+//     $("#select-ship").innerHTML =
+//         '<option value="" selected disabled>Ship</option>';
+//     let ships = [];
+//     data.forEach((job) => {
+//         if (!ships.includes(job.ship)) {
+//             ships.push(job.ship);
+//         }
+//     });
+//     ships.forEach((ship) => {
+//         $(
+//             "#select-ship"
+//         ).innerHTML += `<option value="${ship}">${ship}</option>`;
+//     });
+// };
 
-const getDepartments = (data) => {
-    $("#select-department").innerHTML = "";
-    $("#select-department").innerHTML =
-        '<option value="" selected disabled>Department</option>';
-    let department = [];
-    data.forEach((job) => {
-        if (!department.includes(job.department)) {
-            department.push(job.department);
-        }
-    });
-    department.forEach((department) => {
-        $(
-            "#select-department"
-        ).innerHTML += `<option value="${department}">${department}</option>`;
-    });
-};
+// const getSeniority = (data) => {
+//     $("#select-seniority").innerHTML = "";
+//     $("#select-seniority").innerHTML =
+//         '<option value="" selected disabled>Seniority</option>';
+//     let seniority = [];
+//     data.forEach((job) => {
+//         if (!seniority.includes(job.seniority)) {
+//             seniority.push(job.seniority);
+//         }
+//     });
+//     seniority.forEach((seniority) => {
+//         $(
+//             "#select-seniority"
+//         ).innerHTML += `<option value="${seniority}">${seniority}</option>`;
+//     });
+// };
+
+// const getDepartments = (data) => {
+//     $("#select-department").innerHTML = "";
+//     $("#select-department").innerHTML =
+//         '<option value="" selected disabled>Department</option>';
+//     let department = [];
+//     data.forEach((job) => {
+//         if (!department.includes(job.department)) {
+//             department.push(job.department);
+//         }
+//     });
+//     department.forEach((department) => {
+//         $(
+//             "#select-department"
+//         ).innerHTML += `<option value="${department}">${department}</option>`;
+//     });
+// };
 
 //-----------------
 // TO ADD NEW JOB AND POST ON API
