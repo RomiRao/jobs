@@ -18,6 +18,20 @@ const getJobs = async () => {
     showView("home");
 };
 
+//filter jobs
+const getFilteredJobs = async () => {
+    showView("spinner");
+
+    const url = new URL(`${apiUrl}/Jobs`);
+    url.searchParams.append($("#select-tag").value, $("#select-value").value);
+
+    let response = await fetch(url);
+    let data = await response.json();
+
+    printJobs(data);
+    showView("home");
+};
+
 //new job on api
 const postJob = async (newJob) => {
     showView("spinner");

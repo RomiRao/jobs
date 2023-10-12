@@ -177,7 +177,6 @@ const getFilter = async (filter, data) => {
             arrayOfOptions.push(job[filter]);
         }
     });
-    console.log(arrayOfOptions);
 
     $("#select-value").innerHTML = "";
     $("#select-value").innerHTML =
@@ -192,6 +191,8 @@ const getFilter = async (filter, data) => {
 $("#select-tag").addEventListener("change", (e) =>
     getFilter(e.target.value, getInfo())
 );
+
+$("#search-job").addEventListener("click", () => getFilteredJobs());
 
 //-----------------
 // TO ADD NEW JOB AND POST ON API
