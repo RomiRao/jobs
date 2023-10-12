@@ -8,6 +8,13 @@ const getJobs = async () => {
     renderHome(data);
 };
 
+const getInfo = async () => {
+    let response = await fetch(`${apiUrl}/Jobs`);
+    let data = await response.json();
+
+    return data;
+};
+
 const postJob = async (newJob) => {
     showView("spinner");
     await fetch(`${apiUrl}/Jobs`, {
@@ -51,7 +58,5 @@ const deleteJob = async (id) => {
 
 const renderHome = (data) => {
     printJobs(data);
-    getShips(data);
-    getSeniority(data);
-    getDepartments(data);
+    showView("home");
 };
