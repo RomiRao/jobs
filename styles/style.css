@@ -79,3 +79,10 @@ header {
 
 }
 
+
+@media(max-width: 950px){
+    
+    #cards-container {
+        justify-content: center;
+    }
+}
