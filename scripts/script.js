@@ -193,6 +193,10 @@ $("#select-tag").addEventListener("change", (e) =>
 );
 
 $("#search-job").addEventListener("click", () => getFilteredJobs());
+$("#clear-search").addEventListener("click", () => {
+    $("#select-tag").value = "";
+    $("#select-value").value = "";
+});
 
 //-----------------
 // TO ADD NEW JOB AND POST ON API
