@@ -38,3 +38,7 @@ color: white;
 .spinner-color {
     color: #E39625;
 }
+
+#cards-container {
+    max-width: 960px;
+}
