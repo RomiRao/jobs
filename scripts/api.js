@@ -2,8 +2,7 @@ const apiUrl = "https://651eecc744a3a8aa47693542.mockapi.io";
 
 const getJobs = async () => {
     showView("spinner");
-    let response = await fetch(`${apiUrl}/Jobs`);
-    let data = await response.json();
+    let data = await getInfo();
 
     renderHome(data);
 };
