@@ -1,6 +1,34 @@
+
+/* Sizing */
+
+#cards-container {
+    max-width: 960px;
+}
+
+.w-10 {
+    width: 200px; 
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Text custom */
 .fs-8 {
     font-size: 0.8rem;
 }
+
+.link-primary-c {
+    color: #0072BA;
+}
+
+.link-primary-c:hover{
+    color: #E39625;
+}
+
+/* Background custom */
 
 .bg-tags {
  background-color: #E39625;
@@ -31,14 +59,7 @@ color: white;
     color: #3D4043;
 }
 
-.w-10 {
-    width: 200px; 
-}
-
 .spinner-color {
     color: #E39625;
 }
 
-#cards-container {
-    max-width: 960px;
-}
